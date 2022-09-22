@@ -21,7 +21,7 @@ const getUserWithEmail = function(email) {
   return pool
   .query(`SELECT * FROM users WHERE email = $1`, [email])
   .then((result) => {
-    console.log(result.rows);
+    console.log('getUserWithEmail', result.rows);
     return result.rows[0];
   })
   .catch((err) => {
@@ -40,7 +40,7 @@ const getUserWithId = function(id) {
   return pool
   .query(`SELECT * FROM users WHERE id = $1`, [id])
   .then((result) => {
-    console.log(result.rows);
+    console.log('getUserWithId', result.rows[0]);
     return result.rows[0];
   })
   .catch((err) => {
@@ -95,7 +95,7 @@ const getAllProperties = function(options, limit = 10) {
   return pool
   .query(`SELECT * FROM properties LIMIT $1`, [limit])
   .then((result) => {
-    console.log(result.rows);
+    console.log('getAllProperties', result.rows);
     return result.rows;
   })
   .catch((err) => {
